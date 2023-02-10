@@ -2,3 +2,6 @@
 *__pycache__*
 *.code-workspace
 /.quarto/
+/_site/
+/_*.local
+/docs/
