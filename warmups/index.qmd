@@ -1,0 +1,10 @@
+---
+title: "Warmup Exercises"
+listing:
+  type: table
+  sort:
+    - "date"
+    - "title desc"
+  sort-ui: false
+  filter-ui: false
+---
