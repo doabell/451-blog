@@ -8,16 +8,14 @@ website:
     background: "#112a39"
     right:
       - about.qmd
-      - text: "Warmups"
-        file: warmups/index.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/doabell/451-blog
+      - icon: file-earmark-person
+        href: https://rpubs.com/yluo
 
 format:
   html:
-    title-block-banner: img/landscape.png
+    title-block-banner: img/nate-watson-IN3pV9rH1a8-unsplash.jpg
     title-block-banner-color: white
     theme: cosmo
     css: styles.css
