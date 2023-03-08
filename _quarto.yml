@@ -5,7 +5,7 @@ project:
 website:
   title: "Bell's CSCI 0451 Blog"
   navbar:
-    background: "#112a39"
+    background: "#8a004e"
     right:
       - about.qmd
       - icon: github
@@ -17,7 +17,13 @@ format:
   html:
     title-block-banner: img/nate-watson-IN3pV9rH1a8-unsplash.jpg
     title-block-banner-color: white
-    theme: cosmo
+    theme:
+      light:
+        - flatly
+        - override.scss
+      dark: 
+        - darkly
+        - override.scss
     css: styles.css
 
 

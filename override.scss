@@ -1,0 +1,14 @@
+/*-- scss:defaults --*/
+
+.navbar-brand {
+    margin-left: 16px;
+}
+
+// https://www.mozilla.org/
+// Internet for people, not profit — Mozilla
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Fira+Sans&display=swap');
+$my-sans: "Fira Sans";
+$my-mono: "Fira Code";
+
+$font-family-sans-serif: $my-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-monospace: $my-mono, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
