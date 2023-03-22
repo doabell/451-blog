@@ -5,7 +5,7 @@ project:
 website:
   title: "Bell's CSCI 0451 Blog"
   navbar:
-    background: "#8a004e"
+    pinned: false
     right:
       - about.qmd
       - icon: github
@@ -15,15 +15,20 @@ website:
 
 format:
   html:
+    toc: true
+    smooth-scroll: true
+    html-math-method: katex
     title-block-banner: img/nate-watson-IN3pV9rH1a8-unsplash.jpg
     title-block-banner-color: white
     theme:
       light:
         - flatly
         - override.scss
+        - light.scss
       dark: 
         - darkly
         - override.scss
+        - dark.scss
     css: styles.css
 
 

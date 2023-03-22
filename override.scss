@@ -1,7 +1,11 @@
 /*-- scss:defaults --*/
-
 .navbar-brand {
-    margin-left: 16px;
+    margin-left: 18px;
+}
+
+.navbar {
+    padding-top: 9px !important;
+    padding-bottom: 9px !important;
 }
 
 // https://www.mozilla.org/
