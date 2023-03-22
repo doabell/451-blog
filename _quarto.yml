@@ -5,7 +5,7 @@ project:
 website:
   title: "Bell's CSCI 0451 Blog"
   navbar:
-    pinned: false
+    pinned: true
     right:
       - about.qmd
       - icon: github
