@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 from sklearn.exceptions import NotFittedError
 
 # import numpy.typing as npt
