@@ -243,4 +243,4 @@ class LogisticRegression:
 
         X_ = pad(X)
         y_hat = X_ @ self.w
-        return logistic_loss(y_hat, y).mean()
+        return np.mean(logistic_loss(y_hat, y))

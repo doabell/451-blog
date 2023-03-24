@@ -103,7 +103,7 @@ class LinearRegression:
             raise NotFittedError(
                 "This linear regression instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator."
             )
-        
+
         return pad(X) @ self.w
 
     def loss(self, X: np.ndarray, y: np.ndarray) -> float:
@@ -141,5 +141,5 @@ class LinearRegression:
             )
 
         return 1 - (
-            self.loss(X, y).sum() / ((y.mean() - y) ** 2).sum()
+            self.loss(X, y).sum() / ((np.mean(y) - y) ** 2).sum()
         )
