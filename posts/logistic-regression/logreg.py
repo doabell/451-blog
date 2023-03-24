@@ -73,7 +73,13 @@ class LogisticRegression:
         self.loss_history = []
         self.score_history = []
 
-    def fit(self, X: np.ndarray, y: np.ndarray, alpha: int = 0.001, max_epochs: int = 1000) -> None:
+    def fit(
+        self,
+        X: np.ndarray, 
+        y: np.ndarray, 
+        alpha: int = 0.001, 
+        max_epochs: int = 1000
+        ) -> None:
         """Fit a logistic regression with gradient descent on logistic loss
 
         Starting with a random weight, we compute the next weight vector `self.w` with gradient descent.
@@ -101,6 +107,7 @@ class LogisticRegression:
             gradient = np.mean(
                 (sigmoid(X_ @ self.w) - y) @ X_, axis=0
             )
+            # gradient step
             self.w = self.w - alpha * gradient
 
             # append scores
@@ -110,6 +117,75 @@ class LogisticRegression:
             if np.isclose(new_loss, prev_loss):
                 # stop looping
                 return
+            prev_loss = new_loss
+    
+    def fit_stochastic(
+        self,
+        X: np.ndarray,
+        y: np.ndarray,
+        alpha: int = 0.001,
+        max_epochs: int = 1000,
+        batch_size: int = 10,
+        momentum: bool = False
+    ) -> None:
+        """Fit a logistic regression with stochastic gradient descent (optionally, with the momentum method).
+
+        Starting with a random weight, we compute the next weight vector `self.w` with stochastic gradient descent.
+        After splitting into random subsets of size `batch_size`, we calculate the gradient on each subset and update.
+        Populates `self.w`, `self.loss_history`, and `self.score_history`.
+
+        Args:
+            X (np.ndarray): matrix of predictor variables, with n observations of p features.
+            y (np.ndarray): n binary labels of 0 or 1.
+            alpha (int): learning rate for gradient descent.
+            max_epochs (int): maximum steps to run algorithm.
+            batch_size (int): size of "mini-batches" for stochastic gradient descent.
+            momentum (bool): whether to use the momentum method.
+                If True, uses momentum of 0.8.
+                See [Hardt and Recht](https://arxiv.org/pdf/2102.05242.pdf), p. 85.
+        """
+        # X_ for convenience
+        X_ = pad(X)
+        n = X_.shape[0]
+
+        # initialize
+        self.w = np.random.rand(X.shape[1] + 1)
+        prev_w = self.w
+        prev_loss = np.inf
+
+        # until max_epochs or convergence
+        # main loop
+        for _ in range(max_epochs):
+
+            # shuffle
+            order = np.arange(n)
+            np.random.shuffle(order)
+
+            # loop for each minibatch
+            for batch in np.array_split(order, n // batch_size + 1):
+                X__batch = X_[batch,:]
+                y_batch = y[batch]
+
+                # gradient of the empirical risk for logistic regression
+                # Using formula from lecture notes
+                gradient = np.mean(
+                    (sigmoid(X__batch @ self.w) - y_batch) @ X__batch, axis=0
+                )
+                # gradient step
+                # beta = momentum * 0.8
+                self.w = self.w - alpha * gradient + momentum * 0.8 * (self.w - prev_w)
+                # previous w for next batch
+                prev_w = self.w
+
+            # end of each epoch
+            # append scores
+            new_loss = self.loss(X, y)
+            self.loss_history.append(new_loss)
+            self.score_history.append(self.score(X, y))
+            if np.isclose(new_loss, prev_loss):
+                # stop looping
+                return
+            # previous loss for next epoch
             prev_loss = new_loss
 
     def predict(self, X: np.ndarray) -> np.ndarray:
