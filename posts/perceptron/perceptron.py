@@ -14,7 +14,7 @@ class Perceptron:
 
     Attributes:
         w (np.ndarray): weights of the classifier.
-        history (list[int]): accuracy of the classifier on each iteration (index).
+        history (list[float]): accuracy of the classifier on each iteration (index).
     """
 
     def __init__(self) -> None:
@@ -26,7 +26,7 @@ class Perceptron:
     def fit(self, X: np.ndarray, y: np.ndarray, max_steps: int = 1000) -> None:
         """Fit a perceptron.
 
-        Starting with a random weight, we compute the next weight vector `self.w`
+        Starting with a random weight, we compute the next weight vector `self.w` with the perceptron algorithm.
         Populates `self.w` and `self.history`.
 
         Args:
@@ -80,7 +80,7 @@ class Perceptron:
         # comparision returns True and False, which can be used like 1 and 0
         return (X_ @ self.w) > 0
 
-    def score(self, X: np.ndarray, y: np.ndarray) -> int:
+    def score(self, X: np.ndarray, y: np.ndarray) -> float:
         """Calculate accuracy score on X and y with fitted perceptron model.
 
         Args:
@@ -88,7 +88,7 @@ class Perceptron:
             y (np.ndarray): n binary labels of 0 or 1.
 
         Returns:
-            int: accuracy score of model predictions, a number between 0 and 1.
+            float: accuracy score of model predictions, a number between 0 and 1.
         """
         if self.w is None:
             raise NotFittedError(
