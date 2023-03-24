@@ -75,11 +75,11 @@ class LogisticRegression:
 
     def fit(
         self,
-        X: np.ndarray, 
-        y: np.ndarray, 
-        alpha: int = 0.001, 
+        X: np.ndarray,
+        y: np.ndarray,
+        alpha: float = 0.001,
         max_epochs: int = 1000
-        ) -> None:
+    ) -> None:
         """Fit a logistic regression with gradient descent on logistic loss
 
         Starting with a random weight, we compute the next weight vector `self.w` with gradient descent.
@@ -88,7 +88,7 @@ class LogisticRegression:
         Args:
             X (np.ndarray): matrix of predictor variables, with n observations of p features.
             y (np.ndarray): n binary labels of 0 or 1.
-            alpha (int): learning rate for gradient descent.
+            alpha (float): learning rate for gradient descent.
             max_epochs (int): maximum steps to run algorithm.
         """
 
@@ -118,12 +118,12 @@ class LogisticRegression:
                 # stop looping
                 return
             prev_loss = new_loss
-    
+
     def fit_stochastic(
         self,
         X: np.ndarray,
         y: np.ndarray,
-        alpha: int = 0.001,
+        alpha: float = 0.001,
         max_epochs: int = 1000,
         batch_size: int = 10,
         momentum: bool = False
@@ -137,7 +137,7 @@ class LogisticRegression:
         Args:
             X (np.ndarray): matrix of predictor variables, with n observations of p features.
             y (np.ndarray): n binary labels of 0 or 1.
-            alpha (int): learning rate for gradient descent.
+            alpha (float): learning rate for gradient descent.
             max_epochs (int): maximum steps to run algorithm.
             batch_size (int): size of "mini-batches" for stochastic gradient descent.
             momentum (bool): whether to use the momentum method.
@@ -163,7 +163,7 @@ class LogisticRegression:
 
             # loop for each minibatch
             for batch in np.array_split(order, n // batch_size + 1):
-                X__batch = X_[batch,:]
+                X__batch = X_[batch, :]
                 y_batch = y[batch]
 
                 # gradient of the empirical risk for logistic regression
@@ -173,7 +173,8 @@ class LogisticRegression:
                 )
                 # gradient step
                 # beta = momentum * 0.8
-                self.w = self.w - alpha * gradient + momentum * 0.8 * (self.w - prev_w)
+                self.w = self.w - alpha * gradient + \
+                    momentum * 0.8 * (self.w - prev_w)
                 # previous w for next batch
                 prev_w = self.w
 
