@@ -104,7 +104,7 @@ class LogisticRegression:
             # gradient of the empirical risk for logistic regression
             # Using formula from lecture notes
             gradient = np.mean(
-                (sigmoid(X_ @ self.w) - y) @ X_, axis=0
+                (sigmoid(X_ @ self.w) - y).reshape(X.shape[0],1) * X_, axis=0
             )
             # gradient step
             self.w = self.w - alpha * gradient
@@ -168,7 +168,7 @@ class LogisticRegression:
                 # gradient of the empirical risk for logistic regression
                 # Using formula from lecture notes
                 gradient = np.mean(
-                    (sigmoid(X__batch @ self.w) - y_batch) @ X__batch, axis=0
+                    (sigmoid(X__batch @ self.w) - y_batch).reshape(X__batch.shape[0], 1) * X__batch, axis=0
                 )
                 # gradient step
                 # beta = momentum * 0.8
