@@ -1,0 +1,141 @@
+---
+title: Talk by Dr. Gebru
+author: Bell
+date: '2023-04-15'
+image: "stanford-talk.jpg"
+description: "Guest Lecture: Eugenics and the Promise of Utopia through Artificial General Intelligence."
+---
+
+Image credits: [Rod Searcey/Stanford HAI](https://hai.stanford.edu/news/timnit-gebru-ethical-ai-requires-institutional-and-structural-change)
+
+Instructions can be found at [Learning from Timnit Gebru](https://middlebury-csci-0451.github.io/CSCI-0451/assignments/blog-posts/blog-post-guest-speaker.html).
+
+## About Dr. Gebru
+
+> Timnit Gebru ’08 M.A. ’10 Ph.D. ’17, a leader of the movement for diversity in tech and artificial intelligence,
+> spoke about the dangers of AI at a Symbolic Systems department-sponsored event on Wednesday night.
+> Gebru is the Founder and Executive Director of the Distributed Artificial Intelligence Research Institute (DAIR)
+> and co-founder of the nonprofit to help with visibility and inclusion for Black people, Black in AI.
+
+— [‘Utopia for Whom?’: Timnit Gebru on the dangers of Artificial General Intelligence](https://stanforddaily.com/2023/02/15/utopia-for-whom-timnit-gebru-on-the-dangers-of-artificial-general-intelligence/)
+
+Dr. Gebru, a distinguished computer scientist and influential advocate for diversity,
+will be giving a virtual talk at Middlebury on April 24th, 2023.
+She will also be virtually joining our Machine Learning class.
+
+Dr. Gebru's many works include:
+
+- [Using deep learning and Google Street View to estimate the demographic makeup of neighborhoods across the United States](https://www.pnas.org/doi/full/10.1073/pnas.1700035114) derives estimates for income, race, education, and *even voting patterns, from car images*.
+- [Gender shades: Intersectional accuracy disparities in commercial gender classification](http://proceedings.mlr.press/v81/buolamwini18a.html?mod=article_inline) evaluates commercial gender classification systems to find *an error rate gap of 34%* between darker-skinned females and lighter-skinned males.
+- [On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? 🦜](https://dl.acm.org/doi/abs/10.1145/3442188.3445922) covers the risk of very large language models, including BERT, GPT-2/3, and Switch-C.
+    - Then technical co-lead of the Ethical Artificial Intelligence Team, 
+        Google asked Dr. Gebru to either withdraw this paper or remove Google employees' names from it.
+        When she asked for reasons and advice, Google terminated her employment.
+
+Her long-standing research in AI, ethics, and equality,
+along with her active presence in [podcasts](https://www.listennotes.com/top-podcasts/timnit-gebru/) and [social media](https://mastodon.social/@timnitGebru@dair-community.social),
+has made Dr. Gebru an influential voice in the field.
+
+## FATE in Computer Vision
+
+This is a previous talk from CVPR 2020's *Tutorial on Fairness Accountability Transparency and Ethics in Computer Vision*.
+
+[Website](https://sites.google.com/view/fatecv-tutorial/home?authuser=0), [Video](https://www.youtube.com/watch?v=0sBE5OyD7fk), [Slides](https://drive.google.com/file/d/1rcG8KVmjRUWWNSg-R6cTBlAScP9UkCJp/view)
+
+
+#### The Field
+The field of computer vision has harmed the Black community through policing, racial profiling, and other oppressive uses.
+It also has extremely few Black researchers,
+and less progress in equality and diversity has been made in this field than some other fields,
+like machine learning.
+
+People from Stanford perceived the use of Computer Vision in self-driving cars, policing, and education.
+But the reality is much darker, unfolding when our subjects are humans, i.e. facial recognition.
+
+### Facial Recognition
+As soon as we begin to investigate humans as the subject, Computer Vision becomes the propagator for systematic racism.
+Two companies using facial recognition are mentioned:
+
+- [Faception](https://www.faception.com/): profiling people with tags like "high IQ" and "terrorist" based only on their face
+- [HireVue](https://www.hirevue.com/): ATS for resume, facial and emotion analysis for job applications
+
+Each of these example demonstrate immediate dangers of amplifying existing bias, or introducing more.
+Personally, I think another danger is the potential justification through obfuscation,
+i.e. "we used this model and it performs well" to justify the system and hide the model's biases (through the training data, or the model itself).
+This can even potentially conceal violations of relevant regulation such as equal opportunity laws,
+because investigation will be hard, and intent difficult to prove.
+
+Adding to the equation is the lack of regulation in AI and CV - there are no safety tests.
+AI models endure minimal scrutiny, especially when compared to the FDA approving drugs, whereas the impact can be similar.
+
+### Abstraction
+Making people disappear into mathematical equations, data points, models...
+
+Gender recognition APIs (another layer of abstraction) had significantly higher error rates for Black women, as high as 46.8%.
+But the three datasets used to do this analysis ([LFW](http://vis-www.cs.umass.edu/lfw/), [IJB-A](https://dx.doi.org/10.1109/CVPR.2015.7298803), [Adience](https://talhassner.github.io/home/projects/Adience/Adience-data.html)) also had a disproportionate amount of around 80% lighter-skinned people.
+
+Lack of diversity is not AI-specific - in crash tests for cars, for example, the dummies are based on the average male, putting female lives at risk. Even pharmaceuticals are being tested by White people and males more.
+
+### Visibility vs. Inclusion
+We cannot ignore social and structural problems.
+
+Data were scraped from minorities (darker skin, transgender) without their consent, even though the intention might be to build more inclusive datasets.
+
+Gender classification itself is problematic as well - potential issues for advocating gender conformity, etc.
+
+### A Troubled System
+Wide spread of systems for policing, surveillance, etc.:
+
+- US adults indexed in facial recognition: 1 out of 2
+- Regulation: unregulated
+- Accuracy and bias: unaudited
+
+Additionally, these systems:
+
+- Target the marginalized
+- Do not benefit the marginalized
+- Are not built by the marginalized
+
+### Self-defense
+
+Defending oneself against these systems go beyond the traditional advice of "use a VPN" or "use Tor".
+To counter the system, researchers propose fashion items that covers the face, long hair to cover the face, or infrared LEDs that disrupt cameras.
+
+### Takeaway
+The tl;dr for that **everyone needs to understand about CV today**:
+
+[CV today amplifies systematic racism and bias, inflicting real harm on communities; not enough work is being done to mitigate this, let alone compensate]{.text-warning}.
+
+## Eugenics and the Promise of Utopia through AGI
+
+A recording from [IEEE SaTML 2023](https://satml.org/) of a identically titled talk by Dr. Gebru:
+
+[Eugenics and the Promise of Utopia through AGI](https://www.youtube.com/watch?v=P7XT4TWLzJw)
+
+### Proposed Question
+My proposed question for Dr. Gebru is:
+
+> People have said things like "intellegent", "creative", and "artistic" about recent text and image generation models.
+> 
+> Through engaging with AI systems that can, say, recognize an expression or write like Shakespeare, where do you think is the goalpost for creativity?
+> Do we determine that through the outcome, like a Turing test, or the process and models used?
+> How do we evaluate such statements?
+
+
+::: {.callout-tip appearance="simple"}
+
+## In Progress
+
+This section will be updated after Dr. Gebru's talk on April 24th, 2023.
+
+:::
+
+## Reflections
+
+::: {.callout-tip appearance="simple"}
+
+## In Progress
+
+This section will be updated after Dr. Gebru's talk on April 24th, 2023.
+
+:::
