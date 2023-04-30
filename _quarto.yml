@@ -4,7 +4,7 @@ project:
 
 website:
   favicon: favicon.png
-  open-graph: true
+  open-graph:
     locale: en_US
   title: "Bell's CSCI 0451 Blog"
   navbar:
