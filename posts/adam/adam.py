@@ -8,6 +8,22 @@ import numpy.typing as npt
 
 # Utility functions
 
+def logsig(x):
+    """Compute the log-sigmoid function component-wise.
+    
+    Source: [How to Evaluate the Logistic Loss and not NaN trying](https://fa.bianp.net/blog/2019/evaluate_logistic/#sec3)
+    """
+    out = np.zeros_like(x)
+    idx0 = x < -33
+    out[idx0] = x[idx0]
+    idx1 = (x >= -33) & (x < -18)
+    out[idx1] = x[idx1] - np.exp(x[idx1])
+    idx2 = (x >= -18) & (x < 37)
+    out[idx2] = -np.log1p(np.exp(-x[idx2]))
+    idx3 = x >= 37
+    out[idx3] = -np.exp(-x[idx3])
+    return out
+
 
 def pad(X: npt.NDArray) -> npt.NDArray:
     """Turns X into X_ with a constant column of 1's.
@@ -339,4 +355,4 @@ class LogisticRegression:
 
         X_ = pad(X)
         y_hat = X_ @ self.w
-        return np.mean(logistic_loss(y_hat, y))
+        return np.mean((1 - y) * y_hat - logsig(y_hat))
