@@ -122,20 +122,100 @@ My proposed question for Dr. Gebru is:
 > How do we evaluate such statements?
 
 
-::: {.callout-tip appearance="simple"}
+### The Argument
+#### Utopia
+Organizations like OpenAI promises that AI, more specifically AGI, will make for a bright future (Utopia).
 
-## In Progress
+The term *AGI* is not well-defined; after listing numerous definitions from different organizations, Dr. Gebru states that AGI sounds like "God can do anything".
 
-This section will be updated after Dr. Gebru's talk on April 24th, 2023.
+But current AI (potentially AGI) offerings exploited cheap labor, Mechanical Turk style.
+OpenAI exploited Kenyan workers to filter out toxic content for less than $2 per hour, leaving many with trauma and PTSD.
+Worse, these workers' jobs are being replaced by the very AI systems they are being exploited to develop.
 
-:::
+The question is thus:
+
+> For whom?
+
+#### First-wave Eugenics
+Mostly "negative" eugenics, i.e. expel the bad.
+
+Eugenics back in the day was protrayed as a scientific method, suggesting keywords like progressive, empowering, and technology.
+
+However, the outcome was dark, evil, and cost many lives.
+
+The idea of improving "the human stock" lead to expulsion of those deemed to be undesirable, the "defectives" and "feeble-minded", based on IQ tests.
+
+Since mankind is to be improved genetically, being poor was the result of one's inferior nature, resulting in racism and white superiority as well.
+
+
+#### Second-wave Eugenics
+Mostly "positive" eugenics, i.e. improve to become the good.
+
+Arising from the 1990s, the second wave of eugenics sought to use genetic engineering and biotechnology.
+
+What does eugenics have to do with AGI?
+The answer lies in the proponents of AGI, the "TESCREAL bundle", that these ideologies are actually "second-wave eugenics".
+
+Dr. Gebru continues to show that the TESCREAL bundle has ideologies of "transcending the human race" and so on, which aligns them with eugenics.
+
+These ideologies also contain elements of discrimination (against those unwilling to join them), an imagined (AI) utopia, and eschatology with convictions of an AGI apocalypse.
+
+One example Dr. Gebru pointed out is how the "Effective Altruism" movement [used IQ to score people](https://www.vox.com/future-perfect/23569519/).
+The metric is called PELTIV (Potential Expected Long-Term Instrumental Value), but is at heart a discriminatory view of individuals based on IQ.
+
+Additionally, influential billionaires are in these movements, and they have enough funding to actually impact the world.
+
+#### Do one thing, not everything
+Dr. Gebru compares Meta AI's AI translation model, NLLB-200, with [Lesan AI](https://twitter.com/lesan_ai)'s specialized model.
+
+While Lesan AI performed better, Meta's announcement of an all-encompassing AI translator model made Lesan AI's investors doubt its necessity.
+
+This is one example of a "general" AI model harming smaller, specific models through investment pressure, and harming the minorities they represent as well.
+
+Although not emphasized, Dr. Gebru's takeaway message was, instead of building AGIs, build specific systems with clearly-defined scopes.
 
 ## Reflections
 
-::: {.callout-tip appearance="simple"}
+I feel priviledged to be able to attend this talk.
 
-## In Progress
+The talk was based on a yet-to-be published paper, so instead of reading a paper, I had to look for tweets and forum discussions to learn more.
 
-This section will be updated after Dr. Gebru's talk on April 24th, 2023.
+Around the same time as researching for this blog post, I came across a YouTube video titled [The Rich Have Their Own Ethics: Effective Altruism & the Crypto Crash](https://youtu.be/Lm0vHQYKI-Y).
+The title echoes one of the takeaways from Dr. Gebru's talk, that the rich needed their own ethics to convince themselves they are doing good things.
 
-:::
+### Forums
+I also dug around the Effective Altruism forums a little bit.
+
+#### Mosquito nets
+Published back in 2015, this [The Atlantic article](https://www.theatlantic.com/business/archive/2015/06/what-is-the-greatest-good/395768/) portrays effective altruism as a positive force in helping end malaria with mosquito nets.
+In the forum however, there was a [heated discussion](https://forum.effectivealtruism.org/posts/9XgLq4eQHMWybDsrv/) about whether to donate mosquito nets or not, because people were unsure about the **long-term** benefit of doing so. (In the **short term**, they agree the consequences are "unambiguously positive".)
+
+To me, this suggests an unhealthy bias towards thingking long-term.
+Additionally, given that there are many more people in the future, an action that benefits the future but has short-term consequences might prompt one to ignore the latter.
+
+#### IQ scores
+With regard to scoring people by IQ, the only criticism I encountered in the forum was that keeping personal records [violated GDPR](https://forum.effectivealtruism.org/posts/fPGE9HNARQnbxRJHe/), a data protection law.
+
+Another concern on recording IQ scores was dismissed because the practice of keeping tags on people [was so common](https://forum.effectivealtruism.org/posts/nrQAkcYyx5kodcFdQ/link-how-effective-altruists-ignored-risk?commentId=ceFG7GfpKv8aXaNXK#B5vGJL4AoMXGwCtri), and such behaviour is creppy "by design".
+
+#### On Dr. Gebru
+Dr. Gebru was mentioned once when the SaTML talk [was posted](https://forum.effectivealtruism.org/posts/B9JrWqkzdmsPkpuzY/); the poster specifically advised viewers to ignore criticism towards the EA community.
+
+Another post [asked for advice](https://forum.effectivealtruism.org/posts/cYveBTjXWoutARLvA/) on engaging with people like Dr. Gebru.
+Interestingly, the poster acknowledges their work on social justice, but dismisses these worries with "Algorithmic bias today is not the same as x-risk from unaligned AI in 30 years." (human extinction risk?)
+The post and comment section, however, were unconvinced and somewhat adversarial.
+This conforms to what one of Dr. Gebru's collaborators [has characterized](https://twitter.com/xriskology/status/1620539433417318400) as "cultish behavior".
+
+### On Campus
+The Effective Altruism movement has had a visible on-campus presence for quite a while now.
+
+One of their posters illustrate doing good effectively; another is a reading group on the dangers of AGI.
+
+After the talk, my (unqualified and unasked for) advice to them is twofolds:
+
+- Focus on one thing at a time, like choosing a charity to donate to, or tips on buying more sustainably.
+    - Trying to maximize utility, for the good of all mankind, for the long term, and avoiding an AGI apocalypse all at once might lead to harmful results.
+
+- Find a new name, given the declining reputation of the Effective Altruism movement.
+    - I trust their intention to make the world a better place, and I also don't think they will actively engage in something that is harmful for the present but beneficial to the future.
+    - Therefore, associating themselves with "rich people wanting their own ethics" might not be the best idea.
