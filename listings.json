@@ -1,0 +1,17 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/project/index.html",
+      "/posts/adam/index.html",
+      "/posts/dr-gebru-talk/index.html",
+      "/posts/unsupervised/index.html",
+      "/posts/auditing-bias/index.html",
+      "/posts/linear-regression/index.html",
+      "/posts/penguins/index.html",
+      "/posts/logistic-regression/index.html",
+      "/posts/perceptron/index.html",
+      "/posts/example-blog-post/index.html"
+    ]
+  }
+]

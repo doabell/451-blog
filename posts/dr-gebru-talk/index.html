@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.340">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Bell">
+<meta name="dcterms.date" content="2023-04-15">
+<meta name="description" content="Guest Lecture: Eugenics and the Promise of Utopia through Artificial General Intelligence.">
+
+<title>Bell’s CSCI 0451 Blog - Talk by Dr.&nbsp;Gebru</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: white;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: white;
+background-image: url(../../img/nate-watson-IN3pV9rH1a8-unsplash.jpg);
+background-size: cover;
+      }
+</style>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Bell’s CSCI 0451 Blog - Talk by Dr.&nbsp;Gebru">
+<meta property="og:description" content="Guest Lecture: Eugenics and the Promise of Utopia through Artificial General Intelligence.">
+<meta property="og:image" content="stanford-talk.jpg">
+<meta property="og:site-name" content="Bell's CSCI 0451 Blog">
+<meta property="og:locale" content="en_US">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Bell’s CSCI 0451 Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/doabell/451-blog" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://rpubs.com/yluo" rel="" target=""><i class="bi bi-file-earmark-person" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Talk by Dr.&nbsp;Gebru</h1>
+                  <div>
+        <div class="description">
+          Guest Lecture: Eugenics and the Promise of Utopia through Artificial General Intelligence.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Bell </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 15, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#about-dr.-gebru" id="toc-about-dr.-gebru" class="nav-link active" data-scroll-target="#about-dr.-gebru">About Dr.&nbsp;Gebru</a></li>
+  <li><a href="#fate-in-computer-vision" id="toc-fate-in-computer-vision" class="nav-link" data-scroll-target="#fate-in-computer-vision">FATE in Computer Vision</a>
+  <ul class="collapse">
+  <li><a href="#facial-recognition" id="toc-facial-recognition" class="nav-link" data-scroll-target="#facial-recognition">Facial Recognition</a></li>
+  <li><a href="#abstraction" id="toc-abstraction" class="nav-link" data-scroll-target="#abstraction">Abstraction</a></li>
+  <li><a href="#visibility-vs.-inclusion" id="toc-visibility-vs.-inclusion" class="nav-link" data-scroll-target="#visibility-vs.-inclusion">Visibility vs.&nbsp;Inclusion</a></li>
+  <li><a href="#a-troubled-system" id="toc-a-troubled-system" class="nav-link" data-scroll-target="#a-troubled-system">A Troubled System</a></li>
+  <li><a href="#self-defense" id="toc-self-defense" class="nav-link" data-scroll-target="#self-defense">Self-defense</a></li>
+  <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
+  </ul></li>
+  <li><a href="#eugenics-and-the-promise-of-utopia-through-agi" id="toc-eugenics-and-the-promise-of-utopia-through-agi" class="nav-link" data-scroll-target="#eugenics-and-the-promise-of-utopia-through-agi">Eugenics and the Promise of Utopia through AGI</a>
+  <ul class="collapse">
+  <li><a href="#proposed-question" id="toc-proposed-question" class="nav-link" data-scroll-target="#proposed-question">Proposed Question</a></li>
+  <li><a href="#the-argument" id="toc-the-argument" class="nav-link" data-scroll-target="#the-argument">The Argument</a></li>
+  </ul></li>
+  <li><a href="#reflections" id="toc-reflections" class="nav-link" data-scroll-target="#reflections">Reflections</a>
+  <ul class="collapse">
+  <li><a href="#forums" id="toc-forums" class="nav-link" data-scroll-target="#forums">Forums</a></li>
+  <li><a href="#on-campus" id="toc-on-campus" class="nav-link" data-scroll-target="#on-campus">On Campus</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Image credits: <a href="https://hai.stanford.edu/news/timnit-gebru-ethical-ai-requires-institutional-and-structural-change">Rod Searcey/Stanford HAI</a></p>
+<p>Instructions can be found at <a href="https://middlebury-csci-0451.github.io/CSCI-0451/assignments/blog-posts/blog-post-guest-speaker.html">Learning from Timnit Gebru</a>.</p>
+<section id="about-dr.-gebru" class="level2">
+<h2 class="anchored" data-anchor-id="about-dr.-gebru">About Dr.&nbsp;Gebru</h2>
+<blockquote class="blockquote">
+<p>Timnit Gebru ’08 M.A.&nbsp;’10 Ph.D.&nbsp;’17, a leader of the movement for diversity in tech and artificial intelligence, spoke about the dangers of AI at a Symbolic Systems department-sponsored event on Wednesday night. Gebru is the Founder and Executive Director of the Distributed Artificial Intelligence Research Institute (DAIR) and co-founder of the nonprofit to help with visibility and inclusion for Black people, Black in AI.</p>
+</blockquote>
+<p>— <a href="https://stanforddaily.com/2023/02/15/utopia-for-whom-timnit-gebru-on-the-dangers-of-artificial-general-intelligence/">‘Utopia for Whom?’: Timnit Gebru on the dangers of Artificial General Intelligence</a></p>
+<p>Dr.&nbsp;Gebru, a distinguished computer scientist and influential advocate for diversity, will be giving a virtual talk at Middlebury on April 24th, 2023. She will also be virtually joining our Machine Learning class.</p>
+<p>Dr.&nbsp;Gebru’s many works include:</p>
+<ul>
+<li><a href="https://www.pnas.org/doi/full/10.1073/pnas.1700035114">Using deep learning and Google Street View to estimate the demographic makeup of neighborhoods across the United States</a> derives estimates for income, race, education, and <em>even voting patterns, from car images</em>.</li>
+<li><a href="http://proceedings.mlr.press/v81/buolamwini18a.html?mod=article_inline">Gender shades: Intersectional accuracy disparities in commercial gender classification</a> evaluates commercial gender classification systems to find <em>an error rate gap of 34%</em> between darker-skinned females and lighter-skinned males.</li>
+<li><a href="https://dl.acm.org/doi/abs/10.1145/3442188.3445922">On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? 🦜</a> covers the risk of very large language models, including BERT, GPT-2/3, and Switch-C.
+<ul>
+<li>Then technical co-lead of the Ethical Artificial Intelligence Team, Google asked Dr.&nbsp;Gebru to either withdraw this paper or remove Google employees’ names from it. When she asked for reasons and advice, Google terminated her employment.</li>
+</ul></li>
+</ul>
+<p>Her long-standing research in AI, ethics, and equality, along with her active presence in <a href="https://www.listennotes.com/top-podcasts/timnit-gebru/">podcasts</a> and <a href="https://mastodon.social/@timnitGebru@dair-community.social">social media</a>, has made Dr.&nbsp;Gebru an influential voice in the field.</p>
+</section>
+<section id="fate-in-computer-vision" class="level2">
+<h2 class="anchored" data-anchor-id="fate-in-computer-vision">FATE in Computer Vision</h2>
+<p>This is a previous talk from CVPR 2020’s <em>Tutorial on Fairness Accountability Transparency and Ethics in Computer Vision</em>.</p>
+<p><a href="https://sites.google.com/view/fatecv-tutorial/home?authuser=0">Website</a>, <a href="https://www.youtube.com/watch?v=0sBE5OyD7fk">Video</a>, <a href="https://drive.google.com/file/d/1rcG8KVmjRUWWNSg-R6cTBlAScP9UkCJp/view">Slides</a></p>
+<section id="the-field" class="level4">
+<h4 class="anchored" data-anchor-id="the-field">The Field</h4>
+<p>The field of computer vision has harmed the Black community through policing, racial profiling, and other oppressive uses. It also has extremely few Black researchers, and less progress in equality and diversity has been made in this field than some other fields, like machine learning.</p>
+<p>People from Stanford perceived the use of Computer Vision in self-driving cars, policing, and education. But the reality is much darker, unfolding when our subjects are humans, i.e.&nbsp;facial recognition.</p>
+</section>
+<section id="facial-recognition" class="level3">
+<h3 class="anchored" data-anchor-id="facial-recognition">Facial Recognition</h3>
+<p>As soon as we begin to investigate humans as the subject, Computer Vision becomes the propagator for systematic racism. Two companies using facial recognition are mentioned:</p>
+<ul>
+<li><a href="https://www.faception.com/">Faception</a>: profiling people with tags like “high IQ” and “terrorist” based only on their face</li>
+<li><a href="https://www.hirevue.com/">HireVue</a>: ATS for resume, facial and emotion analysis for job applications</li>
+</ul>
+<p>Each of these example demonstrate immediate dangers of amplifying existing bias, or introducing more. Personally, I think another danger is the potential justification through obfuscation, i.e.&nbsp;“we used this model and it performs well” to justify the system and hide the model’s biases (through the training data, or the model itself). This can even potentially conceal violations of relevant regulation such as equal opportunity laws, because investigation will be hard, and intent difficult to prove.</p>
+<p>Adding to the equation is the lack of regulation in AI and CV - there are no safety tests. AI models endure minimal scrutiny, especially when compared to the FDA approving drugs, whereas the impact can be similar.</p>
+</section>
+<section id="abstraction" class="level3">
+<h3 class="anchored" data-anchor-id="abstraction">Abstraction</h3>
+<p>Making people disappear into mathematical equations, data points, models…</p>
+<p>Gender recognition APIs (another layer of abstraction) had significantly higher error rates for Black women, as high as 46.8%. But the three datasets used to do this analysis (<a href="http://vis-www.cs.umass.edu/lfw/">LFW</a>, <a href="https://dx.doi.org/10.1109/CVPR.2015.7298803">IJB-A</a>, <a href="https://talhassner.github.io/home/projects/Adience/Adience-data.html">Adience</a>) also had a disproportionate amount of around 80% lighter-skinned people.</p>
+<p>Lack of diversity is not AI-specific - in crash tests for cars, for example, the dummies are based on the average male, putting female lives at risk. Even pharmaceuticals are being tested by White people and males more.</p>
+</section>
+<section id="visibility-vs.-inclusion" class="level3">
+<h3 class="anchored" data-anchor-id="visibility-vs.-inclusion">Visibility vs.&nbsp;Inclusion</h3>
+<p>We cannot ignore social and structural problems.</p>
+<p>Data were scraped from minorities (darker skin, transgender) without their consent, even though the intention might be to build more inclusive datasets.</p>
+<p>Gender classification itself is problematic as well - potential issues for advocating gender conformity, etc.</p>
+</section>
+<section id="a-troubled-system" class="level3">
+<h3 class="anchored" data-anchor-id="a-troubled-system">A Troubled System</h3>
+<p>Wide spread of systems for policing, surveillance, etc.:</p>
+<ul>
+<li>US adults indexed in facial recognition: 1 out of 2</li>
+<li>Regulation: unregulated</li>
+<li>Accuracy and bias: unaudited</li>
+</ul>
+<p>Additionally, these systems:</p>
+<ul>
+<li>Target the marginalized</li>
+<li>Do not benefit the marginalized</li>
+<li>Are not built by the marginalized</li>
+</ul>
+</section>
+<section id="self-defense" class="level3">
+<h3 class="anchored" data-anchor-id="self-defense">Self-defense</h3>
+<p>Defending oneself against these systems go beyond the traditional advice of “use a VPN” or “use Tor”. To counter the system, researchers propose fashion items that covers the face, long hair to cover the face, or infrared LEDs that disrupt cameras.</p>
+</section>
+<section id="takeaway" class="level3">
+<h3 class="anchored" data-anchor-id="takeaway">Takeaway</h3>
+<p>The tl;dr for that <strong>everyone needs to understand about CV today</strong>:</p>
+<p><span class="text-warning">CV today amplifies systematic racism and bias, inflicting real harm on communities; not enough work is being done to mitigate this, let alone compensate</span>.</p>
+</section>
+</section>
+<section id="eugenics-and-the-promise-of-utopia-through-agi" class="level2">
+<h2 class="anchored" data-anchor-id="eugenics-and-the-promise-of-utopia-through-agi">Eugenics and the Promise of Utopia through AGI</h2>
+<p>A recording from <a href="https://satml.org/">IEEE SaTML 2023</a> of a identically titled talk by Dr.&nbsp;Gebru:</p>
+<p><a href="https://www.youtube.com/watch?v=P7XT4TWLzJw">Eugenics and the Promise of Utopia through AGI</a></p>
+<section id="proposed-question" class="level3">
+<h3 class="anchored" data-anchor-id="proposed-question">Proposed Question</h3>
+<p>My proposed question for Dr.&nbsp;Gebru is:</p>
+<blockquote class="blockquote">
+<p>People have said things like “intellegent”, “creative”, and “artistic” about recent text and image generation models.</p>
+<p>Through engaging with AI systems that can, say, recognize an expression or write like Shakespeare, where do you think is the goalpost for creativity? Do we determine that through the outcome, like a Turing test, or the process and models used? How do we evaluate such statements?</p>
+</blockquote>
+</section>
+<section id="the-argument" class="level3">
+<h3 class="anchored" data-anchor-id="the-argument">The Argument</h3>
+<section id="utopia" class="level4">
+<h4 class="anchored" data-anchor-id="utopia">Utopia</h4>
+<p>Organizations like OpenAI promises that AI, more specifically AGI, will make for a bright future (Utopia).</p>
+<p>The term <em>AGI</em> is not well-defined; after listing numerous definitions from different organizations, Dr.&nbsp;Gebru states that AGI sounds like “God can do anything”.</p>
+<p>But current AI (potentially AGI) offerings exploited cheap labor, Mechanical Turk style. OpenAI exploited Kenyan workers to filter out toxic content for less than $2 per hour, leaving many with trauma and PTSD. Worse, these workers’ jobs are being replaced by the very AI systems they are being exploited to develop.</p>
+<p>The question is thus:</p>
+<blockquote class="blockquote">
+<p>For whom?</p>
+</blockquote>
+</section>
+<section id="first-wave-eugenics" class="level4">
+<h4 class="anchored" data-anchor-id="first-wave-eugenics">First-wave Eugenics</h4>
+<p>Mostly “negative” eugenics, i.e.&nbsp;expel the bad.</p>
+<p>Eugenics back in the day was protrayed as a scientific method, suggesting keywords like progressive, empowering, and technology.</p>
+<p>However, the outcome was dark, evil, and cost many lives.</p>
+<p>The idea of improving “the human stock” lead to expulsion of those deemed to be undesirable, the “defectives” and “feeble-minded”, based on IQ tests.</p>
+<p>Since mankind is to be improved genetically, being poor was the result of one’s inferior nature, resulting in racism and white superiority as well.</p>
+</section>
+<section id="second-wave-eugenics" class="level4">
+<h4 class="anchored" data-anchor-id="second-wave-eugenics">Second-wave Eugenics</h4>
+<p>Mostly “positive” eugenics, i.e.&nbsp;improve to become the good.</p>
+<p>Arising from the 1990s, the second wave of eugenics sought to use genetic engineering and biotechnology.</p>
+<p>What does eugenics have to do with AGI? The answer lies in the proponents of AGI, the “TESCREAL bundle”, that these ideologies are actually “second-wave eugenics”.</p>
+<p>Dr.&nbsp;Gebru continues to show that the TESCREAL bundle has ideologies of “transcending the human race” and so on, which aligns them with eugenics.</p>
+<p>These ideologies also contain elements of discrimination (against those unwilling to join them), an imagined (AI) utopia, and eschatology with convictions of an AGI apocalypse.</p>
+<p>One example Dr.&nbsp;Gebru pointed out is how the “Effective Altruism” movement <a href="https://www.vox.com/future-perfect/23569519/">used IQ to score people</a>. The metric is called PELTIV (Potential Expected Long-Term Instrumental Value), but is at heart a discriminatory view of individuals based on IQ.</p>
+<p>Additionally, influential billionaires are in these movements, and they have enough funding to actually impact the world.</p>
+</section>
+<section id="do-one-thing-not-everything" class="level4">
+<h4 class="anchored" data-anchor-id="do-one-thing-not-everything">Do one thing, not everything</h4>
+<p>Dr.&nbsp;Gebru compares Meta AI’s AI translation model, NLLB-200, with <a href="https://twitter.com/lesan_ai">Lesan AI</a>’s specialized model.</p>
+<p>While Lesan AI performed better, Meta’s announcement of an all-encompassing AI translator model made Lesan AI’s investors doubt its necessity.</p>
+<p>This is one example of a “general” AI model harming smaller, specific models through investment pressure, and harming the minorities they represent as well.</p>
+<p>Although not emphasized, Dr.&nbsp;Gebru’s takeaway message was, instead of building AGIs, build specific systems with clearly-defined scopes.</p>
+</section>
+</section>
+</section>
+<section id="reflections" class="level2">
+<h2 class="anchored" data-anchor-id="reflections">Reflections</h2>
+<p>I feel priviledged to be able to attend this talk.</p>
+<p>The talk was based on a yet-to-be published paper, so instead of reading a paper, I had to look for tweets and forum discussions to learn more.</p>
+<p>Around the same time as researching for this blog post, I came across a YouTube video titled <a href="https://youtu.be/Lm0vHQYKI-Y">The Rich Have Their Own Ethics: Effective Altruism &amp; the Crypto Crash</a>. The title echoes one of the takeaways from Dr.&nbsp;Gebru’s talk, that the rich needed their own ethics to convince themselves they are doing good things.</p>
+<section id="forums" class="level3">
+<h3 class="anchored" data-anchor-id="forums">Forums</h3>
+<p>I also dug around the Effective Altruism forums a little bit.</p>
+<section id="mosquito-nets" class="level4">
+<h4 class="anchored" data-anchor-id="mosquito-nets">Mosquito nets</h4>
+<p>Published back in 2015, this <a href="https://www.theatlantic.com/business/archive/2015/06/what-is-the-greatest-good/395768/">The Atlantic article</a> portrays effective altruism as a positive force in helping end malaria with mosquito nets. In the forum however, there was a <a href="https://forum.effectivealtruism.org/posts/9XgLq4eQHMWybDsrv/">heated discussion</a> about whether to donate mosquito nets or not, because people were unsure about the <strong>long-term</strong> benefit of doing so. (In the <strong>short term</strong>, they agree the consequences are “unambiguously positive”.)</p>
+<p>To me, this suggests an unhealthy bias towards thingking long-term. Additionally, given that there are many more people in the future, an action that benefits the future but has short-term consequences might prompt one to ignore the latter.</p>
+</section>
+<section id="iq-scores" class="level4">
+<h4 class="anchored" data-anchor-id="iq-scores">IQ scores</h4>
+<p>With regard to scoring people by IQ, the only criticism I encountered in the forum was that keeping personal records <a href="https://forum.effectivealtruism.org/posts/fPGE9HNARQnbxRJHe/">violated GDPR</a>, a data protection law.</p>
+<p>Another concern on recording IQ scores was dismissed because the practice of keeping tags on people <a href="https://forum.effectivealtruism.org/posts/nrQAkcYyx5kodcFdQ/link-how-effective-altruists-ignored-risk?commentId=ceFG7GfpKv8aXaNXK#B5vGJL4AoMXGwCtri">was so common</a>, and such behaviour is creppy “by design”.</p>
+</section>
+<section id="on-dr.-gebru" class="level4">
+<h4 class="anchored" data-anchor-id="on-dr.-gebru">On Dr.&nbsp;Gebru</h4>
+<p>Dr.&nbsp;Gebru was mentioned once when the SaTML talk <a href="https://forum.effectivealtruism.org/posts/B9JrWqkzdmsPkpuzY/">was posted</a>; the poster specifically advised viewers to ignore criticism towards the EA community.</p>
+<p>Another post <a href="https://forum.effectivealtruism.org/posts/cYveBTjXWoutARLvA/">asked for advice</a> on engaging with people like Dr.&nbsp;Gebru. Interestingly, the poster acknowledges their work on social justice, but dismisses these worries with “Algorithmic bias today is not the same as x-risk from unaligned AI in 30 years.” (human extinction risk?) The post and comment section, however, were unconvinced and somewhat adversarial. This conforms to what one of Dr.&nbsp;Gebru’s collaborators <a href="https://twitter.com/xriskology/status/1620539433417318400">has characterized</a> as “cultish behavior”.</p>
+</section>
+</section>
+<section id="on-campus" class="level3">
+<h3 class="anchored" data-anchor-id="on-campus">On Campus</h3>
+<p>The Effective Altruism movement has had a visible on-campus presence for quite a while now.</p>
+<p>One of their posters illustrate doing good effectively; another is a reading group on the dangers of AGI.</p>
+<p>After the talk, my (unqualified and unasked for) advice to them is twofolds:</p>
+<ul>
+<li>Focus on one thing at a time, like choosing a charity to donate to, or tips on buying more sustainably.
+<ul>
+<li>Trying to maximize utility, for the good of all mankind, for the long term, and avoiding an AGI apocalypse all at once might lead to harmful results.</li>
+</ul></li>
+<li>Find a new name, given the declining reputation of the Effective Altruism movement.
+<ul>
+<li>I trust their intention to make the world a better place, and I also don’t think they will actively engage in something that is harmful for the present but beneficial to the future.</li>
+<li>Therefore, associating themselves with “rich people wanting their own ethics” might not be the best idea.</li>
+</ul></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
