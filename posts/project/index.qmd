@@ -235,6 +235,21 @@ In our Random Forest regressor model, particularly, the corresponding explanatio
 
 ### Feature correlation
 
+![Dendrogram and Heatmap for our selected features](dendro.png)
+
+The above figure shows the dendrogram 
+(evaluated by [Ward's linkage](https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.ward.html#scipy.cluster.hierarchy.ward))
+and heatmap of correlation between each independent variable in our model.
+
+On the left, we can observe that `B01003_001E` (total population) is correlated with `B08134_001E` (travel time to work) and `B25001_001E` (total housing units).
+This is reasonable because the number of housing units, and subsequently travel time to work,
+does depend on how many people are inside the county.
+
+On the right, we can see that land and water area are strongly correlated,
+as shown by two black squares.
+This is due to land and water area being percentages instead of absolute values, 
+so they will always add up to one.
+
 ## Concluding Discussion
 
 Our project **worked** in the following ways:
