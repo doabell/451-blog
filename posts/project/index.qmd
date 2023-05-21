@@ -3,9 +3,7 @@ title: Housing Price Prediction
 author: Jiayi Chen & Bell Luo
 date: '2023-05-19'
 image: "recession.jpg"
-description: "A valuable learning experience in machine learning algorithms to analyze and predict housing prices."
-format: html
-toc: true
+description: "A valuable machine learning experience to analyze and predict housing prices."
 bibliography: refs.bib
 ---
 
@@ -130,7 +128,7 @@ potentially introducing biases into our findings.
 A full list of these variable names can be found [here](https://www.census.gov/data/developers/data-sets/acs-5year/2021.html),
 under "2021 ACS Detailed Tables Variables".
 
-We were able to select the following independent variables:
+We were able to select the following independent variables from the ACS dataset:
 
 - `B01002_001E`: total median age 
 - `B01003_001E`: total population
@@ -146,6 +144,8 @@ We were able to select the following independent variables:
 - `B25040_002E`: houses with heating fuel
 - `B25064_001E`: median gross rent
 - `B25081_001E`: count of housing units with a mortgage
+
+Additional independent variables include coordinates for each county, and land and water area (as a percentage of total area).
 
 Our dependent variable is Zillow's *Home Value Index* for 2021, 
 which reflects the "typical home value" for houses in a county.
@@ -186,6 +186,8 @@ These include Linear regression, Linear regression with SGD, Ridge regression, G
 
 We also proceeded to build our own fully-connected neural network using PyTorch.
 
+### Model Performance
+
 In order to evaluate those algorithms we used, we implemented two metrics to measure the relative performance:
 
 1. [Coefficient of determination](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html).
@@ -196,17 +198,30 @@ In order to evaluate those algorithms we used, we implemented two metrics to mea
     This represents the average of the squared differences between the predicted and actual values.
     In other words, it quantifies the difference between the estimator (the model's prediction) and the actual value.
 
-Our random forest model achieved a score of `0.9109`, while having a MSE of `1.60781e+09`.
+The following table lists the $R^2$ scores and MSEs for our models, in order of decreasing performance:
 
-Here is a rundown of our top 5 models' performance, listed in order of decreasing test scores:
+|                            | Score  | MSE ($\times 10^9$) |
+|----------------------------|--------|---------------------|
+| Random Forest              | 0.9109 | 1.6078              |
+| Gradient Boosting          | 0.8612 | 2.5038              |
+| Linear Regression with SGD | 0.7677 | 4.1899              |
+| Ridge Regression           | 0.7675 | 4.1939              |
+| Linear Regression          | 0.7673 | 4.1976              |
+| Support Vector Machine     | 0.7327 | 4.8206              |
+| Neural Network             | 0.5231 | 8.6008              |
 
-1. Random Forest Regression
-2. Gradient Boosting Regression
-3. Support Vector Regression
-4. Ridge Regression
-5. Linear Regression
+: Model Performance on Test Set
 
-Additionally, here are the top 5 features, ordered by importance (as determined by Random Forest):
+We observe that tree-based models, like Random Forest and Gradient Boosting (an improvement on Decision Trees), 
+perform well on our dataset, followed by linear regression-like models, and then Support Vector Machines.
+
+The fully-connected neural network performed poorly on our regression task.
+
+### Feature Importance
+
+![Permutation Feature Importance for our Random Forest model](pfi-random-forest.png)
+
+Here are the top 5 features ordered by importance, as determined by our Random Forest model:
 
 1. `B19013_001E`: median household income, inflation-adjusted
 2. `INTPTLONG`: longitude (decimal degrees)
@@ -218,12 +233,32 @@ Note that feature importance is not the same as a coefficient in linear regressi
 as the relationship may not be linear.
 In our Random Forest regressor model, particularly, the corresponding explanation is most likely segmented and discrete.
 
+### Feature correlation
+
 ## Concluding Discussion
 
-In what ways did our project work?
-Did we meet the goals that we set at the beginning of the project?
-How do our results compare to the results of others who have also studied similar problems?
-If we had more time, data, or computational resources, what might we do differently in order to improve further?
+Our project **worked** in the following ways:
+
+We were able to apply our learning in the course to predict housing prices across US counties.
+We also learned a lot more about machine learning models,
+in particular the nuances and technicalities concerning feature importance, correlated features, and 
+
+We also applied our learning to implement a fully-connected neural network, 
+and verified its subpar performance on tabular data.
+
+Our **project goals** were partially met, 
+in that our data processing, model implementation, model evaluation, 
+and analysis on feature importance are complete.
+
+We were hoping to identify a comprehensive framework for auditing bias,
+but were unable to find a methodology that goes beyond arbitrarily comparing cross-sectional trends and biases.
+Therefore, we did not deliver any bias audits, despite having relevant data available.
+
+**Given more time**, we may be able to focus on bias auditing, 
+and reproducing models from previous literature to evaluate our model's performance.
+There is also an opportunity for field research on our model's predictions, 
+potentially through interviews, simulated auctioning events, or case studies for existing homes.
+
 
 ## Group Contributions Statement
 
