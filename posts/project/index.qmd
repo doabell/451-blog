@@ -1,0 +1,258 @@
+---
+title: Housing Price Prediction
+author: Jiayi Chen & Bell Luo
+date: '2023-05-19'
+image: "recession.jpg"
+description: "A valuable learning experience in machine learning algorithms to analyze and predict housing prices."
+format: html
+toc: true
+bibliography: refs.bib
+---
+
+## Abstract
+
+Our project utilized (classical and deep) machine learning techniques to analyze and predict housing prices across different counties in the United States, 
+with a focus on understanding the most impactful factors.
+We were able to carefully identify, select, and merge datasets containing variables related to housing, population, and geo-spatial features.
+After constructing several models,
+including classical ones via `scikit-learn` and a neural network via `PyTorch`, 
+we found that the highest accuracy was achieved by our Random Forest model, 
+followed by Gradient Boosting regression;
+the neural network performed relative poorly.
+These models helped us to identify some of the most important factors of housing prices,
+including median income, education attainment, and perhaps surprisingly, longtitude.
+The relevant source code is hosted on [Github](https://github.com/doabell/451-proj).
+
+## Introduction
+
+Housing prices are a crucial aspect of the American economy.
+It directly influences various sectors, including the real estate industry,
+financial markets, and consumers' purchasing power.
+Understanding the determinants of housing prices is therefore essential for potential house buyers,
+sellers, renters, and city planners alike.
+
+Thus, this project aims to dissect the relationship between housing prices,
+demographic, and socioeconomic indicators across US counties.
+We believe our project can inform these relevant sectors,
+empower stakeholders,
+and pave the way for future work on what actually influences housing prices.
+
+@ho2021predicting studys property price prediction using three machine learning algorithms,
+including Support Vector Machines (SVM), Random Forest (RF), and a Gradient Boosting Machine (GBM).
+Their study finds that RF and GBM provided superior performance over SVM.
+In our work, we also incorporate Random Forest models due to their demonstrated efficacy and robustness.
+Interpretability is also a key advantage of Random Forest models.
+
+Similarly, @thamarai2020house highlights the importance of utilizing different house-level attributes for price prediction, 
+such as the number of bedrooms, age of the house, and proximity to essential facilities like schools and shopping malls. 
+We too consider a multitude of housing factors, albeit not directly due to the nature of the US Census, 
+and additional socioeconomic features in our analysis. 
+
+In the meantime, @zulkifley2020house emphasizes the importance of data mining in predicting housing prices,
+and finds that locational and structural attributes significantly influence such predictions.
+As such, our comprehensive set of features include geospatial information, 
+including position and land area, in line with this recommendation.
+
+Through our analysis, we aim to contribute to this growing body of research,
+and provide further, timely insight into housing price prediction and its influencing factors.
+
+## Value Statement
+
+These are **the users** and **potential beneficiaries** of our project:
+
+- Potential home-buyers and renters, who can make informed decisions when purchasing properties
+- Real estate professionals, who can provide better guidance to their clients
+- Urban planners and policymakers, who can make more informed decisions regarding zoning,
+    land use, and housing policies
+- Social workers, who can identify driving factors of inequality in housing and rent prices,
+    and prioritize advocating for change in these key areas
+
+These are the **potentially excluded** from benefit **or harmed** by our project:
+
+- Marginalized populations, who may be underrepresented or misrepresented in the data,
+    so our model may not accurately reflect their needs and wants
+- Residents of certain reguins with inaccurate predictions,
+    leading to incorrect conclusions about said region, and / or suboptimal buying / renting decisions
+
+My **personal reasons** for working on this problem:
+
+After the most recent Fed rate hike, [for the first time](https://fred.stlouisfed.org/series/DFEDTARU), 
+since [2007](https://fred.stlouisfed.org/series/DFEDTAR), 
+the US Federal Funds Target Range has been pushed above 5%.
+This impacts the whole economy, as well as the housing market, 
+[including fixed-rate mortgages](https://www.bankrate.com/mortgages/federal-reserve-and-mortgage-rates/#influences), 
+so I thought it interesting to look at housing prices across the country.
+
+Will our project make the world **a more equitable, just, joyful, peaceful, or sustainable place**?
+
+Under the assumption that our data sources represent different demographics and regions fairly, yes, 
+we are confident that with the additional transparency and insight provided by our project, 
+the US housing market has the potential to become more equitable, just, and sustainable.
+
+## Materials and Methods
+
+### Data
+
+We utilized two main data sources: @zillow_2011_housing, 
+and the @uscensusbureau_2021_acs.
+We also collected other explanatory predictors, 
+such as land area and geospatial information (longitude & latitude), 
+that are also from the Census Bureau.
+
+The US census data is from the 2017-2021 ACS (American Community Survey) 5-Year PUMS (Public Use Microdata Sample), 
+accessed through the Census API per [PUMS Documentation](https://www.census.gov/programs-surveys/acs/microdata/documentation.html). 
+This dataset contains information collected by the Census Bureau about individual people or housing units.
+We believe this is a representative and authoritative source of information for various demographic and economic factors,
+that can influence housing prices and affordability. 
+
+Zillow Housing Data is a collection of datasets from Zillow, a real-estate marketplace company.
+It contains features include housing prices, rental prices, city, state, etc.
+The relevant data can be accessed [here](https://www.zillow.com/research/data/), 
+under "ZHVI All Homes (SFR, Condo/Co-op) Time Series, Smoothed, Seasonally Adjusted($), by County".
+
+Lastly, we collected geospatial data for each county from @uscensusbureau_2022_gazetteer:
+[U.S. Gazetteer Files 2022](https://www.census.gov/geo/maps-data/data/tiger-geodatabases.html).
+
+In our finalized dataset, each row corresponds to a US county as an observation.
+Each observation contains the average home value, 
+as well as other explanatory factors like median age, income, and education attainment.
+
+Despite our best efforts in collecting comprehensive data, it's important to acknowledge some limitations.
+While we were able to gather county-level data from sources like Zillow and the US Census, 
+certain house-level factors, like the exact condition of a house, or neighborhood characteristics,
+might not be fully represented. 
+Moreover, while the US Census publishes widely-used datasets of high quality,
+it may still underrepresent certain marginalized communities, 
+potentially introducing biases into our findings.
+
+### Selected Variables
+
+A full list of these variable names can be found [here](https://www.census.gov/data/developers/data-sets/acs-5year/2021.html),
+under "2021 ACS Detailed Tables Variables".
+
+We were able to select the following independent variables:
+
+- `B01002_001E`: total median age 
+- `B01003_001E`: total population
+- `B08134_001E`: travel time to work
+- `B15012_001E`: number of Bachelor's degrees
+- `B19013_001E`: median household income, inflation-adjusted
+- `B19083_001E`: gini index of income inequality
+- `B23025_005E`: civilian labor force, unemployed
+- `B25001_001E`: total housing units
+- `B25002_002E`: occupancy is "occupied"
+- `B25018_001E`: median number of rooms
+- `B25035_001E`: median year of construction
+- `B25040_002E`: houses with heating fuel
+- `B25064_001E`: median gross rent
+- `B25081_001E`: count of housing units with a mortgage
+
+Our dependent variable is Zillow's *Home Value Index* for 2021, 
+which reflects the "typical home value" for houses in a county.
+Zillow reports this index per month, so the average is taken for the entirety of 2021.
+
+For future bias auditing, we also kept these relevant variables:
+
+- `B02001_002E`: White alone
+- `B02001_003E`: Black or African American alone
+- `B02001_004E`: American Indian and Alaska Native alone
+- `B02001_005E`: Asian alone
+- `B02001_006E`: Native Hawaiian and Other Pacific Islander alone
+- `B02001_007E`: Some other race alone
+- `B02001_008E`: Two or more races
+- `B02001_009E`: Two races including Some other race
+- `B02001_010E`: Two races excluding Some other race, and three or more races
+
+### Variable importance
+
+Another feature we paid attention to was variable importance.
+How did each variable contrinbute to each model's prediction of housing prices?
+
+To ensure consistency between models with different levels of interpretability, 
+we chose [permutation importance](https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html) as our measurement of feature importance.
+Essentially, by permutating a certain feature column, we "mix up" that column's influence on the model predictions, 
+so that the resulting difference in performance can be attributed to that feature column.
+
+However, if [multicollinearity](https://scikit-learn.org/stable/auto_examples/inspection/plot_permutation_importance_multicollinear.html) or correlation between features are present,
+then permutating one column has little effect on model performance,
+because the information provided by that feature can be accessed in another, correlating feature.
+Therefore, it is also important to plot and inspect a dendrogram for our selected features, to identify any correlations.
+
+## Results
+
+We fitted our selected variables against several popular classical models from the `scikit-learn` package.
+
+These include Linear regression, Linear regression with SGD, Ridge regression, Gradient Boosting regression, Support Vector Machines, and Random Forest models.
+
+We also proceeded to build our own fully-connected neural network using PyTorch.
+
+In order to evaluate those algorithms we used, we implemented two metrics to measure the relative performance:
+
+1. [Coefficient of determination](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html).
+    This is the $R^2$ score, or the residual sum of squares divided by the total sum of squares, for a certain model.
+    The best possible score is 1.0, and because the model can be arbitrarily worse, scores can be negative, and there is no worst score.
+    When the prediction residuals have zero mean, this corresponds to the percent of variance *explained by* the model.
+2. Mean Squared Error (MSE).
+    This represents the average of the squared differences between the predicted and actual values.
+    In other words, it quantifies the difference between the estimator (the model's prediction) and the actual value.
+
+Our random forest model achieved a score of `0.9109`, while having a MSE of `1.60781e+09`.
+
+Here is a rundown of our top 5 models' performance, listed in order of decreasing test scores:
+
+1. Random Forest Regression
+2. Gradient Boosting Regression
+3. Support Vector Regression
+4. Ridge Regression
+5. Linear Regression
+
+Additionally, here are the top 5 features, ordered by importance (as determined by Random Forest):
+
+1. `B19013_001E`: median household income, inflation-adjusted
+2. `INTPTLONG`: longitude (decimal degrees)
+3. `B15012_001E`: number of Bachelor’s degrees
+4. `B25035_001E`: median year of construction
+5. `B19083_001E`: gini index of income inequality
+
+Note that feature importance is not the same as a coefficient in linear regression,
+as the relationship may not be linear.
+In our Random Forest regressor model, particularly, the corresponding explanation is most likely segmented and discrete.
+
+## Concluding Discussion
+
+In what ways did our project work?
+Did we meet the goals that we set at the beginning of the project?
+How do our results compare to the results of others who have also studied similar problems?
+If we had more time, data, or computational resources, what might we do differently in order to improve further?
+
+## Group Contributions Statement
+
+We met and worked together on this project every week.
+
+Bell was mainly responsible for data processing, visualization, and fitting classical models.
+He wrote relevant code to clean and merge the data.
+He also generated insightful visualizations such as an interactive map.
+Additionally, he designed and executed numerous experiments, with a particular focus on model validation and performance assessment.
+Then he carried out several classical model experiments, and in particular related them to feature importance. 
+
+Jiayi primarily focused on training a neural network from scratch.
+He coded the data loader, training loops, and the fitting of the PyTorch model.
+He also performed several experiments related to hyperparameter tuning.
+He helped in finding suitable datasets and selecting relevant variables, as well as identifying and plotting multicollinear features.
+Additionally, he gathered materials into a preliminary version of this blog post.
+
+The project proposal, presentation slides, 
+and this blog post are of equal contribution between the two authors.
+(This excludes the "personal reasons" and "Personal Reflection" sections.)
+
+## Personal Reflection
+
+- *What did you learn from the process of researching, implementing, and communicating about your project?*
+
+
+- *How do you feel about what you achieved? Did meet your initial goals? Did you exceed them or fall short? In what ways?*
+
+
+
+- *In what ways will you carry the experience of working on this project into your next courses, career stages, or personal life?*
+
