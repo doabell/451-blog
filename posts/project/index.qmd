@@ -297,12 +297,42 @@ and this blog post are of equal contribution between the two authors.
 
 ## Personal Reflection
 
-- *What did you learn from the process of researching, implementing, and communicating about your project?*
+> What did you learn from the process of researching, implementing, and communicating about your project?
 
+A lot of data science is data cleaning and tuning hyperparameters, 
+and this was heartfelt throughout this project.
+Even though we stayed in the realm of organized and clean datasets
+with clear cross-walks (FIPS codes), the data preparation still took a significant amount of our time.
 
-- *How do you feel about what you achieved? Did meet your initial goals? Did you exceed them or fall short? In what ways?*
+Through comparing models in `scikit-learn` and our own neural network in PyTorch,
+I can now appreciate the differences, similarities, and nuances for each model better than before.
 
+One particularly valuable learning outcome was using PyTorch to build a data loader and train a neural network.
 
+> How do you feel about what you achieved? 
+> Did meet your initial goals? 
+> Did you exceed them or fall short? In what ways?
 
-- *In what ways will you carry the experience of working on this project into your next courses, career stages, or personal life?*
+I am happy with the progression of our project, from an empty folder to multiple notebooks with data,
+models, visualizations, and even a map.
 
+My initial goals concerning writing quality code, drafting and revising this blog post, 
+and collaborating on the project presentation were achieved.
+
+I exceeded these goals in incorporating additional, careful analysis of our independent variables.
+
+This blog post was submitted after the "best by" date, due to collaborator availability constraints.
+
+> In what ways will you carry the experience of working on this project into your next courses, 
+> career stages, or personal life?
+
+Two years ago, I submitted a blog post on [Jails, Voter ID Laws, and Turnout](https://rpubs.com/yluo/turnout) for my Econ Stats course.
+A lot has changed to both the world and myself in these two years, 
+but one recurring theme is the intersection between data, models, and real-life impact,
+whether it be measuring, understanding, or changing the world around us.
+
+This project has been the continuation of that theme, 
+and I am confident that I will continue to understand the world through data,
+be mindful of the effect of such understanding, 
+and show reverence to the struggles and triumphs of every individual, 
+represented behind rows in a dataframe.
